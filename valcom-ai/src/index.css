@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  * {
+    @apply transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl;
+  }
+  
+  .glass-card-white {
+    @apply backdrop-blur-xl bg-white/90 border border-white/30 shadow-2xl;
+  }
+  
+  .glass-button {
+    @apply backdrop-blur-md bg-white/20 border border-white/30 hover:bg-white/30 transition-all duration-300;
+  }
+  
+  .magnetic-button {
+    @apply transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl;
+  }
+  
+  .floating-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .glow-effect {
+    box-shadow: 0 0 20px rgba(65, 105, 225, 0.3), 0 0 40px rgba(65, 105, 225, 0.2);
+  }
+  
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Mobile-first responsive button */
+  .btn-responsive {
+    @apply px-4 py-2 text-sm;
+    @apply sm:px-6 sm:py-3 sm:text-base;
+    @apply lg:px-8 lg:py-4 lg:text-lg;
+  }
+
+  /* Mobile-first responsive card */
+  .card-responsive {
+    @apply p-4;
+    @apply sm:p-6;
+    @apply lg:p-8;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+  
+  .gradient-text-animated {
+    background: linear-gradient(-45deg, #4169E1, #1E90FF, #00BFFF, #4169E1);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 4s ease infinite;
+  }
+  
+  .gradient-bg {
+    background: linear-gradient(135deg, #4169E1 0%, #1E90FF 100%);
+  }
+  
+  .gradient-bg-animated {
+    background: linear-gradient(-45deg, #4169E1, #1E90FF, #00BFFF, #4169E1);
+    background-size: 400% 400%;
+    animation: gradient-shift 6s ease infinite;
+  }
+  
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/80 border border-white/20;
+  }
+  
+  /* Mobile-first spacing system */
+  .section-padding {
+    @apply py-12 sm:py-16 lg:py-20 xl:py-28;
+  }
+  
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8 xl:px-12;
+  }
+  
+  .content-spacing {
+    @apply space-y-4 sm:space-y-6 lg:space-y-8;
+  }
+
+  /* Mobile-first text sizes */
+  .text-responsive-xl {
+    @apply text-lg sm:text-xl lg:text-2xl;
+  }
+
+  .text-responsive-2xl {
+    @apply text-xl sm:text-2xl lg:text-3xl;
+  }
+
+  .text-responsive-3xl {
+    @apply text-2xl sm:text-3xl lg:text-4xl xl:text-5xl;
+  }
+
+  .text-responsive-hero {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl;
+  }
+  
+  /* Enhanced Shadows */
+  .shadow-glass {
+    box-shadow: 
+      0 8px 32px rgba(31, 38, 135, 0.37),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  
+  .shadow-elevated {
+    box-shadow: 
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  /* Mobile specific utilities */
+  .mobile-only {
+    @apply block sm:hidden;
+  }
+
+  .mobile-hidden {
+    @apply hidden sm:block;
+  }
+
+  .tablet-only {
+    @apply hidden sm:block lg:hidden;
+  }
+
+  .desktop-only {
+    @apply hidden lg:block;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: translateX(-100%);
+  animation: shimmer 2s infinite;
+}
+
+/* Scroll Progress Bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, #4169E1, #1E90FF);
+  transform-origin: 0%;
+  z-index: 1000;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #4169E1, #1E90FF);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #3557d9, #1a7fd4);
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .floating-animation {
+    animation-duration: 8s; /* Slower on mobile for better performance */
+  }
+  
+  /* Reduce particle count on mobile */
+  .mobile-reduce-particles {
+    display: none;
+  }
+  
+  /* Simplify complex animations on mobile */
+  .mobile-simple-animation {
+    animation: none !important;
+  }
+}
+
+/* Prevent horizontal scroll on mobile */
+body {
+  overflow-x: hidden;
+}
+
+/* Touch-friendly interactive elements */
+@media (max-width: 1024px) {
+  .magnetic-button {
+    @apply hover:scale-100; /* Disable hover scale on touch devices */
+  }
+  
+  /* Larger touch targets */
+  button, .cursor-pointer {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}

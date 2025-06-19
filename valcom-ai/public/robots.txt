@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://valcom.ai/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow specific paths if needed
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow search engines to crawl all content
+Allow: /
